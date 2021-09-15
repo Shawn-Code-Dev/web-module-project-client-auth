@@ -53,9 +53,11 @@ function App() {
               <Logout setIsLoggedIn={setIsLoggedIn}/>
             </PrivateRoute>
             
-            <PrivateRoute path='/friends'>
+            {/* <PrivateRoute path='/friends'>
               <FriendsList getFriends={getFriends} friends={friends} loading={loading}/>
-            </PrivateRoute>
+            </PrivateRoute> */}
+
+            <PrivateRoute path='/friends' render={(props) => <FriendsList {...props} getFriends={getFriends} friends={friends} loading={loading}/>}/>
 
             <PrivateRoute path='/friendform'>
               <FriendForm/>
