@@ -12,7 +12,7 @@ const Navbar = ({ isLoggedIn }) => {
               <Link to='/logout'>Logout</Link>
             </li>
             <li>
-              { isLoggedIn && <Link to='/friendslist'>Friends List</Link> }
+              { isLoggedIn && <Link to='/friends'>Friends List</Link> }
             </li>
             <li>
               { isLoggedIn && <Link to='/friendform'>Add A Friend!</Link> }

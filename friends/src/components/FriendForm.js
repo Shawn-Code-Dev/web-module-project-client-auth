@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router';
 import axiosWithAuth from '../utilities/axiosWithAuth';
+import Error from './Error';
 
 const FriendForm = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
-  const [err, setErr] = useState('')
+  const [err, setErr] = useState(null)
 
   const history = useHistory();
 
@@ -14,6 +15,9 @@ const FriendForm = () => {
     e.preventDefault();
     if(name === '' || age === '' || email === '') {
       setErr('All fields are required')
+      setTimeout(() => {
+        setErr(null)
+      }, 2500)
     } else {
       await axiosWithAuth()
         .post('/friends', {name, age, email})
@@ -26,7 +30,7 @@ const FriendForm = () => {
 
   console.log(name, age, email)
 
-  return (
+  return (<>
     <form onSubmit={handleSubmit}>
       <label>
         <p>Name</p>
@@ -42,7 +46,8 @@ const FriendForm = () => {
       </label>
       <input type="submit" value="Submit" />
     </form>
-  )
+    <Error err={err}/>
+  </>)
 }
 
 export default FriendForm

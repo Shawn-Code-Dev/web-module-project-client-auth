@@ -4,7 +4,7 @@ import Loading from './Loading';
 
 const FriendsList = ({ friends, getFriends, loading }) => {
   useEffect(() => {
-    getFriends();
+    getFriends(); // eslint-disable-next-line
   }, [])
 
   if(loading){

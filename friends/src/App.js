@@ -40,21 +40,27 @@ function App() {
         <div>       
           <Navbar isLoggedIn={isLoggedIn}/>
           <Switch>
+            
             <Route exact path='/'>
               <Login setIsLoggedIn={setIsLoggedIn}/>
             </Route>
+            
             <Route path='/login'>
               <Login setIsLoggedIn={setIsLoggedIn} getFriends={getFriends}/>
             </Route>
+            
             <PrivateRoute path='/logout'>
               <Logout setIsLoggedIn={setIsLoggedIn}/>
             </PrivateRoute>
-            <PrivateRoute path='/friendslist'>
+            
+            <PrivateRoute path='/friends'>
               <FriendsList getFriends={getFriends} friends={friends} loading={loading}/>
             </PrivateRoute>
+
             <PrivateRoute path='/friendform'>
               <FriendForm/>
             </PrivateRoute>
+
           </Switch>        
         </div>
       </div>

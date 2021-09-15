@@ -12,7 +12,7 @@ const Logout = ({ setIsLoggedIn }) => {
         localStorage.removeItem('token');
         setIsLoggedIn(false);
         history.push('/')
-      })
+      }) // eslint-disable-next-line
   },[])
   return (
     <div>
